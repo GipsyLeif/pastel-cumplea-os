@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #52006a;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f3d7bd;
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  
+  .birthday-cake {
+    position: relative;
+    width: 250px;
+    height: 300px;
+  }
+  
+  /* Estructura principal del pastel */
+  .cake-base {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+  }
+  
+  .layer {
+    position: absolute;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .layer-1 {
+    height: 60px;
+    bottom: 0;
+    background: linear-gradient(to right, #e0a170, #f5c393);
+  }
+  
+  .layer-2 {
+    height: 60px;
+    bottom: 50px;
+    background: linear-gradient(to right, #d08a60, #e0a170);
+  }
+  
+  .layer-3 {
+    height: 60px;
+    bottom: 100px;
+    background: linear-gradient(to right, #b87348, #d08a60);
+  }
+  
+  /* Decoraciones laterales */
+  .decoration {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff6b88;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+  }
+  
+  .side-1 {
+    bottom: 30px;
+    left: 10px;
+  }
+  
+  .side-2 {
+    bottom: 80px;
+    right: 15px;
+  }
+  
+  .side-3 {
+    bottom: 130px;
+    left: 20px;
+  }
+  
+  /* Cobertura con goteo */
+  .frosting {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    left: 0%;
+    top: 120px;
+    background: #ffb6c1;
+    border-radius: 50% 50% 0 0;
+    z-index: 3;
+  }
+  
+  .drip {
+    position: absolute;
+    width: 15px;
+    background: #ffb6c1;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .drip-1 {
+    height: 25px;
+    left: 20%;
+    top: 30px;
+  }
+  
+  .drip-2 {
+    height: 35px;
+    left: 50%;
+    top: 30px;
+  }
+  
+  .drip-3 {
+    height: 20px;
+    left: 75%;
+    top: 30px;
+  }
+  
+  /* Vela y llama */
+  .candle {
+    position: absolute;
+    width: 12px;
+    height: 60px;
+    background: linear-gradient(to right, #f35c5c, #ffd6e0);
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    border-radius: 5px;
+  }
+  
+  .flame {
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    background: #ffde00;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 20% 20%;
+    box-shadow: 
+      0 0 10px #ff9900,
+      0 0 20px #ff6600,
+      0 0 30px #ff3300;
+    filter: blur(1px);
+    animation: 
+      flicker 0.8s infinite alternate,
+      sway 1.2s infinite ease-in-out;
+  }
+  
+  @keyframes flicker {
+    0%, 100% { height: 30px; opacity: 0.9; }
+    50% { height: 35px; opacity: 1; }
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: translateX(-50%) rotate(-3deg); }
+    50% { transform: translateX(-50%) rotate(3deg); }
+  }
+  
+  /* Mensaje */
+  .message {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    color: #d23669;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-family: 'Pacifico', cursive;
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.2),
+      0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 10;
+    padding: 10px 0;
+    margin: 0 auto;
+    animation: pulse 2s infinite alternate;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+  .birthday-cake {
+    margin-bottom: 80px;
+  }
+  
+  /* Efecto al soplar */
+  .blown .flame {
+    animation: none;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  /* Animación de humo */
+.smoke {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    filter: blur(5px);
+    z-index: 5;
+  }
+  
+  .blown .smoke {
+    background: rgba(222, 168, 168, 0.6);
+    animation: 
+      smokeRise 3s ease-out forwards,
+      smokeFade 2s ease-out 1s forwards;
+  }
+  
+  @keyframes smokeRise {
+    0% { 
+      transform: translateX(-50%) translateY(0) scale(0.5);
+      opacity: 0.8;
+    }
+    100% { 
+      transform: translateX(-50%) translateY(-100px) scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes smokeFade {
+    0% { opacity: 0.8; }
+    100% { opacity: 0; }
+  }
+
+  .heart {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b88"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 20;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: float 3s ease-in-out infinite;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+  
+  .heart.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .heart.zoomed {
+    width: 200px;
+    height: 200px;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 30;
+    animation: none;
+  }
+  
+  .heart.zoomed::after {
+    content: attr(data-message);
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #d23669;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    white-space: nowrap;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 25;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+  }
+
+  .heart.zoomed::after {
+    content: attr(data-message);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 250px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    white-space: pre-line;
+    color: #d23669;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .poem-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  .poem-container {
+    background: linear-gradient(135deg, #fff9f9 0%, #ffe8f0 100%);
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 2px solid #ffb6c1;
+  }
+  
+  .poem-container h3 {
+    color: #d23669;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .poem-content {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5a3d5a;
+    text-align: center;
+    white-space: pre-line;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #d23669;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .close-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  @keyframes fadeOut {
+    to { opacity: 0; }
+  }
+  
+  /* Ajustes para móviles */
+  @media (max-width: 600px) {
+    .poem-container {
+      width: 85%;
+      padding: 20px 15px;
+    }
+    
+    .poem-container h3 {
+      font-size: 1.5rem;
+    }
+    
+    .poem-content {
+      font-size: 1rem;
+    }
+  }
+
+  .hidden-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 1s ease 3s;
+    font-family: 'Pacifico', cursive;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+    background: rgba(214, 48, 49, 0.7);
+    padding: 12px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    pointer-events: none;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  .hidden-message.visible {
+    opacity: 1;
+  }
+  
+  .youtube-link {
+    color: #feca57;
+    font-weight: bold;
+    text-decoration: none;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+    padding: 0 5px;
+  }
+  
+  .youtube-link:hover {
+    color: #ff9f43;
+    transform: scale(1.1);
+  }
+  
+  /* Efecto de brillo para el link */
+  .youtube-link {
+    animation: glow 2s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px, 0 0 10px, 0 0 15px #feca57, 0 0 20px #feca57;
+    }
+    to {
+      text-shadow: 0 0 10px, 0 0 20px #ff9f43, 0 0 30px #ff9f43, 0 0 40px #ff9f43;
+    }
+  }
+
+  /* Botón Léeme */
+.read-me-btn {
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    background: linear-gradient(135deg, #ff6b88);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 50;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .read-me-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* Ventana Modal */
+  .message-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  
+  .message-modal.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .modal-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .modal-content h3 {
+    color: #52006a;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  
+  .credits {
+    text-align: center;
+    font-family: 'Comic Neue', cursive;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .personal-message {
+    background: #fff9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ff6b88;
+    font-family: 'Comic Neue', cursive;
+    line-height: 1.7;
+    color: #555;
+  }
+  
+  .personal-message p {
+    margin-bottom: 15px;
+  }
+  
+  .signature {
+    text-align: right;
+    font-family: 'Pacifico', cursive;
+    color: #ff6b88;
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  .close-modal {
+    display: block;
+    margin: 25px auto 0;
+    background: #52006a;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .close-modal:hover {
+    background: #3a004d;
+  }
